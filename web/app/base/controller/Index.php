@@ -1,10 +1,9 @@
 <?php
+declare (strict_types = 1);
 
 namespace app\base\controller;
 
-use app\BaseController;
-
-class Index extends BaseController
+class Index
 {
     public function index()
     {
@@ -16,23 +15,19 @@ class Index extends BaseController
             ];
         }
         $ret = [
-          'data'=>[
-            'list'=>[
-                'data'=> $data,
-                'page'=>10,
-                'size'=>10,
-                'now_page'=>1,
-                'last_page'=>1,
-                'totle' =>40
-            ]
-          ],
+            'data'=>[
+                'list'=>[
+                    'data'=> $data,
+                    'page'=>10,
+                    'size'=>10,
+                    'now_page'=>1,
+                    'last_page'=>1,
+                    'totle' =>40
+                ]
+            ],
             'status'=>200
         ];
-        return $ret;
-    }
-
-    public function hello($name = 'ThinkPHP8')
-    {
-        return 'hello,' . $name;
+        return json($ret);
     }
 }
+
